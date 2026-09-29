@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Portfolio de Maryem Belouaar, développeuse Full Stack à Montréal." />
-<title>Maryem Belouaar — Développeuse Full Stack</title>
+<meta name="description" content="Portfolio de Maryem Belouaar, étudiante développeuse Full Stack à Montréal." />
+<title>Maryem Belouaar | Étudiante développeuse Full Stack</title>
 <style>
 :root {
   --bg: #070b12;
@@ -111,6 +111,16 @@ h2{font-size:clamp(34px,4vw,52px);margin:8px 0 0;letter-spacing:-1.8px}
 .project-actions .live-link{color:var(--accent);padding:9px 12px;border:1px solid rgba(45,212,255,.28);border-radius:10px;background:rgba(45,212,255,.07)}
 .project-link::after{content:"";display:inline-block;width:0;height:1px;margin-left:7px;vertical-align:middle;background:var(--accent);transition:width .3s ease}
 .project-link:hover::after{width:28px}
+.project-preview{
+ position:absolute;inset:24px 24px 88px;z-index:6;display:flex;align-items:center;justify-content:center;
+ border:0;border-radius:16px;background:transparent;
+ box-shadow:0 18px 44px rgba(0,0,0,.38);opacity:0;visibility:hidden;
+ transform:scale(.965) translateY(8px);transition:opacity .28s ease,transform .32s ease,visibility .28s;
+ pointer-events:none;overflow:hidden
+}
+.project-preview img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;border-radius:16px}
+.project.has-preview:hover .project-preview,
+.project.has-preview:focus-within .project-preview{opacity:1;visibility:visible;transform:scale(1) translateY(0)}
 .timeline{position:relative;margin-left:8px}
 .timeline::before{content:"";position:absolute;left:9px;top:0;bottom:0;width:1px;background:linear-gradient(var(--accent),transparent)}
 .t-item{position:relative;padding-left:38px;margin:0 0 26px}
@@ -147,6 +157,7 @@ footer{padding:28px 0 44px;color:#8192a4;font-size:13px;border-top:1px solid var
  .section-head{align-items:start;flex-direction:column}
  .nav-links{display:none}
  .menu-btn{display:inline-flex}
+ .project-preview{display:none}
 }
 @media(max-width:560px){
  h1{letter-spacing:-2px}
@@ -432,7 +443,7 @@ footer{padding:28px 0 44px;color:#8192a4;font-size:13px;border-top:1px solid var
 <section id="accueil" class="container hero">
   <div>
     <h1>Maryem<br><span class="grad">Belouaar</span></h1>
-    <p><strong>Développeuse Full Stack</strong> à Montréal. Je conçois des expériences web modernes, des API robustes et des interfaces responsives avec React, Node.js, Express, .NET et MySQL.</p>
+    <p><strong>Étudiante développeuse Full Stack</strong> à Montréal. Je conçois des expériences web modernes, des API robustes et des interfaces responsives avec React, Node.js, Express, .NET et MySQL.</p>
     <div class="hero-actions">
       <a class="btn" href="#projets">Voir mes projets →</a>
       <a class="btn secondary" href="https://github.com/beelmaryama-netizen" target="_blank" rel="noopener">GitHub ↗</a>
@@ -455,7 +466,7 @@ footer{padding:28px 0 44px;color:#8192a4;font-size:13px;border-top:1px solid var
 <section id="apropos" class="section">
   <div class="container">
     <div class="section-head reveal">
-      <div><div class="eyebrow">01 — À propos</div><h2>Développeuse avec curiosité,<br>rigueur et sens du détail.</h2></div>
+      <div><div class="eyebrow">À propos</div><h2>Étudiante développeuse avec curiosité,<br>rigueur et sens du détail.</h2></div>
       <p>Je transforme des besoins concrets en solutions web claires, fonctionnelles et agréables à utiliser.</p>
     </div>
     <div class="grid">
@@ -483,7 +494,7 @@ footer{padding:28px 0 44px;color:#8192a4;font-size:13px;border-top:1px solid var
 <section id="competences" class="section">
   <div class="container">
     <div class="section-head reveal">
-      <div><div class="eyebrow">02 — Compétences</div><h2>Ma boîte à outils.</h2></div>
+      <div><div class="eyebrow">Compétences</div><h2>Ma boîte à outils.</h2></div>
       <p>Une stack web complète pour concevoir, développer, tester et livrer des applications modernes.</p>
     </div>
     <div class="grid">
@@ -497,11 +508,11 @@ footer{padding:28px 0 44px;color:#8192a4;font-size:13px;border-top:1px solid var
 <section id="projets" class="section">
   <div class="container">
     <div class="section-head reveal">
-      <div><div class="eyebrow">03 — Projets</div><h2>Quelques réalisations.</h2></div>
+      <div><div class="eyebrow">Projets</div><h2>Quelques réalisations.</h2></div>
       <p>Une sélection de projets qui montrent mon approche Full Stack, API et développement d’applications.</p>
     </div>
     <div class="grid">
-      <article class="card project reveal">
+      <article class="card project reveal has-preview">
         <div class="project-top"><span class="eyebrow">Full Stack</span><span>01</span></div>
         <h3>Livres Gourmands</h3>
         <p>Application web complète autour de la gestion de livres, avec interface moderne, back-end Node/Express, base MySQL, tests et déploiement web.</p>
@@ -510,6 +521,7 @@ footer{padding:28px 0 44px;color:#8192a4;font-size:13px;border-top:1px solid var
           <a class="project-link live-link" href="https://livregourmands-app.vercel.app/" target="_blank" rel="noopener">Voir le site ↗</a>
           <a class="project-link" href="https://github.com/beelmaryama-netizen/Livres-Mobile-FastAPI" target="_blank" rel="noopener">Voir sur GitHub ↗</a>
         </div>
+        <div class="project-preview" aria-hidden="true"><img src="assets/livres-gourmands-preview.png" alt="" /></div>
       </article>
 
       <article class="card project reveal">
@@ -542,7 +554,7 @@ footer{padding:28px 0 44px;color:#8192a4;font-size:13px;border-top:1px solid var
 <section id="formation" class="section">
   <div class="container">
     <div class="section-head reveal">
-      <div><div class="eyebrow">04 — Formation</div><h2>Un parcours multidisciplinaire.</h2></div>
+      <div><div class="eyebrow">Formation</div><h2>Un parcours multidisciplinaire.</h2></div>
       <p>Une base technique en développement, enrichie par un parcours académique varié.</p>
     </div>
     <div class="grid">
@@ -567,14 +579,14 @@ footer{padding:28px 0 44px;color:#8192a4;font-size:13px;border-top:1px solid var
 <section id="contact" class="section">
   <div class="container">
     <div class="contact-card reveal">
-      <div class="eyebrow">05 — Contact</div>
+      <div class="eyebrow">Contact</div>
       <h2>Construisons quelque chose d’utile.</h2>
       <p>Je suis ouverte aux stages et aux opportunités en développement web Full Stack à Montréal et en télétravail.</p>
       <div class="hero-actions" style="justify-content:center">
         <a class="btn" href="mailto:meryembelouaar@gmail.com">M’écrire ✉</a>
         <a class="btn secondary" href="https://www.linkedin.com/in/maryem-belouaar-1496b5435/" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="btn secondary" href="https://github.com/beelmaryama-netizen" target="_blank" rel="noopener">GitHub ↗</a>
-        <button class="btn secondary cv-btn" type="button" onclick="downloadCV()">Mon CV ↓</button>
+        <a class="btn secondary cv-btn" href="assets/CV_Maryem_Belouaar_ATS.docx" download>Mon CV ↓</a>
       </div>
     </div>
   </div>
@@ -582,7 +594,7 @@ footer{padding:28px 0 44px;color:#8192a4;font-size:13px;border-top:1px solid var
 </main>
 
 <footer>
-  <div class="container">© 2026 Maryem Belouaar · Développeuse Full Stack · Montréal</div>
+  <div class="container">© 2026 Maryem Belouaar · Étudiante développeuse Full Stack · Montréal</div>
 </footer>
 
 <script>

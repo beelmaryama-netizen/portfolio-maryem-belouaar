@@ -14,6 +14,7 @@ Ce portfolio présente mes compétences, mes projets et mon parcours en dévelop
 - Node.js
 - Express.js
 - MySQL
+- Vue.js
 - C# / .NET
 - Git & GitHub
 
